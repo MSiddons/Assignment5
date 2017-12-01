@@ -13,8 +13,8 @@ double convertC(double a)
 double convertF(double a)
 {
 
-	return ((a - 32) * 0.55556); // using a decimal approximation of 5/9 as we don't need more than 2dp of accuracy for everyday use.
-}								// (after all, you didn't say the output needed to be 100% accurate!)
+	return ((a - 32) * (5.0/9));
+}	
 
 int main()
 {
@@ -24,7 +24,7 @@ int main()
 	{															// I'm not certain why, but '&&' here acts as logical OR, and '||' acts as logical AND. Spooky.
 		lastTemp = tempIn;
 		lastDegrees = degreesIn;
-		cout << "Enter a temperature: " << fixed; // setprecision(0) ensures the first part of the relevent cout will always be shown correctly.
+		cout << "Enter a temperature: ";
 		cin >> tempIn >> degreesIn;
 		if (degreesIn == 'c' || degreesIn == 'C')
 			cout << "When converted, " << tempIn << " degrees Celsius is " << fixed << setprecision(2) << convertC(tempIn) << " degrees Fahrenheit." << endl;
